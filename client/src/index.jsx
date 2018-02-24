@@ -32,12 +32,9 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <h1>Hello World!</h1>
-        </div>
-        <div>
+          <h2>Details</h2>
           <Description details={this.state.details}/>
         </div>
-
       </div>
     );
   }
