@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.get('/details', function(req,res) {
   Model.Details.find({})
     .limit(1)
-    .select('details -_id')
+    .select('-_id')
     .then(function(data){
       res.send(data);
     })

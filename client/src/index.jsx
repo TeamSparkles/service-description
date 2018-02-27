@@ -11,7 +11,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      details: ''
+      details: '',
+      photos: []
     }
   }
 
@@ -24,6 +25,10 @@ class App extends React.Component {
     axios.get('/details')
       .then(function(res) {
         that.setState({details: res.data[0].details});
+        that.setState({photos: res.data[0].photos});
+      })
+      .catch(function(err) {
+        console.log(err);
       })
   }
 
@@ -33,7 +38,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="event-details-container">
-          <Photos />
+          <Photos photos={this.state.photos}/>
           <div className="sectionTitle"><h3>Details</h3></div>
           <Description details={this.state.details}/>
         </div>

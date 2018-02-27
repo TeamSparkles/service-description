@@ -6,7 +6,7 @@ class Photos extends React.Component {
   }
   render() {
 
-    var imgUrl = "https://secure.meetupstatic.com/photos/event/a/b/6/c/highres_468643884.jpeg"
+    var imgUrl = this.props.photos[0];
     const imgStyle ={
       width: "600px",
       height: "337.5px",
