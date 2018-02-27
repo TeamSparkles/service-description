@@ -20,9 +20,5 @@ app.get('/details', function(req,res) {
     })
 })
 
-let port = 4000;
-
-app.listen((process.env.PORT || port), function() {
-  console.log(`listening on port ${port}`);
-});
+module.exports = app
 

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/server.js",
     "test": "jest"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "enzyme": "^3.3.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "react-addons-test-utils": "^15.6.2",
+    "supertest": "^3.0.0",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^2.0.6"
   }
