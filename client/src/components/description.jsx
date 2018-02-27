@@ -6,10 +6,14 @@ class Description extends React.Component {
     super(props)
   }
   render() {
+    var output = <p>this will disappear if rendering correctly</p>;
+    if (this.props.details) {
+      output = Parser(this.props.details)
+    }
 
     return (
       <div className="runningText">
-        {Parser(this.props.details)}
+        {output}
       </div>
     )
   }
