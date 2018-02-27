@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Description from './components/description.jsx';
 import $ from 'jquery';
 import axios from 'axios';
+import Description from './components/description.jsx';
+import Photos from './components/photos.jsx';
 
 class App extends React.Component {
 
@@ -32,6 +33,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="event-details-container">
+          <Photos />
           <div className="sectionTitle"><h3>Details</h3></div>
           <Description details={this.state.details}/>
         </div>

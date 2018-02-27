@@ -25,6 +25,8 @@
     "nodemon": "^1.15.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-image-resizer": "^1.3.0",
+    "react-resize-to-aspect-ratio": "^1.0.7",
     "react-test-renderer": "^16.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.2",

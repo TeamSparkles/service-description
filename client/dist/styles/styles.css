@@ -21,6 +21,12 @@ img {
   display: none;
 }
 
+.photosContainer {
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background: #fff no-repeat 50%;
+}
+
 .runningText {
   line-height: 1.8;
 }
@@ -46,3 +52,4 @@ img {
   -webkit-font-feature-settings: "liga","kern";
   max-width: 600px;
 }
+
