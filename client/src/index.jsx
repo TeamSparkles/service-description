@@ -31,8 +31,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <div>
-          <h2>Details</h2>
+        <div className="event-details-container">
+          <div className="sectionTitle"><h3>Details</h3></div>
           <Description details={this.state.details}/>
         </div>
       </div>

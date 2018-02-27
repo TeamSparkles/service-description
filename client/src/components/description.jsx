@@ -8,7 +8,7 @@ class Description extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="runningText">
         {Parser(this.props.details)}
       </div>
     )
