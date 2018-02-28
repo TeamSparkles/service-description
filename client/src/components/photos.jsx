@@ -7,20 +7,23 @@ class Photos extends React.Component {
   }
   render() {
 
-    var imgUrl = this.props.photos[1];
-    const imgStyle ={
-      width: "600px",
-      height: "337.5px",
-      backgroundSize: 'cover',
-      backgroundImage: "url('" + imgUrl + "')",
-    };
+    var output = [];
+
+    for (var i =0; i < this.props.photos.length; i++) {
+      var imgUrl = this.props.photos[i];
+      const imgStyle ={
+        width: "600px",
+        height: "337.5px",
+        backgroundSize: 'cover',
+        backgroundImage: "url('" + imgUrl + "')",
+      };
+      output.push(<div className="photosCarousel" style={imgStyle}></div>)
+    }
 
     return (
         <div className="photos-container">
           <Carousel showStatus={false}>
-            <div className="photosCarousel" style={imgStyle}></div>
-            <div className="photosCarousel" style={imgStyle}></div>
-            <div className="photosCarousel" style={imgStyle}></div>
+            {output}
           </Carousel>
         </div>
     );
