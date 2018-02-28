@@ -21,11 +21,20 @@ img {
   display: none;
 }
 
-.photosContainer {
+.photos-container{
   margin-bottom: 30px;
+  background-color: white
+}
+
+.photosCarousel {
   border-radius: 4px;
   background: #fff no-repeat 50%;
 }
+
+.slide {
+  background: transparent!important;
+}
+
 
 .runningText {
   line-height: 1.8;
