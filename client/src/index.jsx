@@ -24,8 +24,8 @@ class App extends React.Component {
     var that = this;
     axios.get('/details')
       .then(function(res) {
-        that.setState({details: res.data[0].details});
-        that.setState({photos: res.data[0].photos});
+        that.setState({details: res.data[2].details});
+        that.setState({photos: res.data[2].photos});
       })
       .catch(function(err) {
         console.log(err);

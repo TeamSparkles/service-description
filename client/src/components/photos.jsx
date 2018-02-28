@@ -17,12 +17,12 @@ class Photos extends React.Component {
         backgroundSize: 'cover',
         backgroundImage: "url('" + imgUrl + "')",
       };
-      output.push(<div className="photosCarousel" style={imgStyle}></div>)
+      output.push(<div key={i} className="photosCarousel" style={imgStyle}></div>)
     }
 
     return (
         <div className="photos-container">
-          <Carousel showStatus={false}>
+          <Carousel showStatus={false} showThumbs={false} showIndicators={this.props.photos.length > 1}>
             {output}
           </Carousel>
         </div>
