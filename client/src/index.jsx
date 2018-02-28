@@ -12,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
       details: '',
-      photos: []
+      photos: ['https://tinyurl.com/yc2jgbyq']
     }
   }
 
