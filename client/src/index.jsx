@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Description from './components/description.jsx';
 import $ from 'jquery';
 import axios from 'axios';
+import Description from './components/description.jsx';
+import Photos from './components/photos.jsx';
 
 class App extends React.Component {
 
@@ -10,7 +11,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      details: ''
+      details: '',
+      photos: ['https://tinyurl.com/yc2jgbyq']
     }
   }
 
@@ -22,7 +24,11 @@ class App extends React.Component {
     var that = this;
     axios.get('/details')
       .then(function(res) {
-        that.setState({details: res.data[0].details});
+        that.setState({details: res.data[2].details});
+        that.setState({photos: res.data[2].photos});
+      })
+      .catch(function(err) {
+        console.log(err);
       })
   }
 
@@ -32,6 +38,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="event-details-container">
+          <Photos photos={this.state.photos}/>
           <div className="sectionTitle"><h3>Details</h3></div>
           <Description details={this.state.details}/>
         </div>
