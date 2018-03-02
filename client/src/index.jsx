@@ -12,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
       details: '',
-      photos: ['https://tinyurl.com/yc2jgbyq']
+      photos: ['www.example.com']
     }
   }
 
@@ -24,8 +24,8 @@ class App extends React.Component {
     var that = this;
     axios.get('/details')
       .then(function(res) {
-        that.setState({details: res.data[2].details});
-        that.setState({photos: res.data[2].photos});
+        that.setState({details: res.data[30].details});
+        that.setState({photos: res.data[30].photos});
       })
       .catch(function(err) {
         console.log(err);

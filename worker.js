@@ -5,19 +5,25 @@ var Model = require('./database//models/details.js');
 
 mongoose.connect('mongodb://localhost/meetup_details');
 
-//add six generic filler photos to an array;
-var photos = [];
-for (var i = 0; i < photodata.length; i+= 6) {
-  photos.push([photodata[i].pictures, photodata[i+1].pictures, photodata[i+2].pictures, photodata[i+3].pictures, photodata[i+4].pictures, photodata[i+5].pictures])
-}
+var len = photodata.length;
 
-//iterate through meetup api data, create new object with description, ids, and photo array of 6 images from earlier;
 var output = []
 data.events.forEach(function(event){
+  var i = 0;
+  var rand = Math.floor(Math.random() * 6); 
+  var pics = [];
   var temp = {};
   temp.id = event.id;
   temp.details = event.description;
-  temp.photos = photos.shift();
+  temp.photos = [];
+  while (i < rand) {
+    var currentPic = photodata[Math.floor(Math.random() * len)].pictures;
+    if (pics.indexOf(currentPic) === -1) {
+      temp.photos.push(photodata[Math.floor(Math.random() * len)].pictures);
+      pics.push(currentPic);
+    }
+    i++;
+  }
   output.push(temp);
 });
 
