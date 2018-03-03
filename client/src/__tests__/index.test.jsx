@@ -10,7 +10,7 @@ describe ('App', () => {
 
 describe('Client to Server Connection', () => {
     test('It should response the GET method', (done) => {
-        request(app).get('/').then((response) => {
+        request(app).get('/api/event/247947838').then((response) => {
             expect(response.statusCode).toBe(200);
             done();
         });
