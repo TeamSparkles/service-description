@@ -12,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
       details: '',
-      photos: ['www.example.com']
+      photos: ['https://cdn.makeawebsitehub.com/wp-content/uploads/2016/03/error-with-wordpress.png']
     }
   }
 
@@ -22,10 +22,14 @@ class App extends React.Component {
 
   getDetails() {
     var that = this;
-    axios.get('/details')
+    const url = window.location.href;
+    const urlEnd = url.split('/event/')[1];
+    const eventId = urlEnd.split('/')[0];
+
+    axios.get('/api/event/' + eventId)
       .then(function(res) {
-        that.setState({details: res.data[30].details});
-        that.setState({photos: res.data[30].photos});
+        that.setState({details: res.data.details});
+        that.setState({photos: res.data.photos});
       })
       .catch(function(err) {
         console.log(err);
