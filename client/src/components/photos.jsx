@@ -1,38 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Carousel } from 'react-responsive-carousel';
 
-class Photos extends React.Component {
-  constructor(props) {
-    super(props)
+const Photos = ({ photos }) => {
+  const output = [];
+
+  for (let i = 0; i < photos.length; i += 1) {
+    const imgUrl = photos[i];
+    const imgStyle = {
+      width: '600px',
+      height: '337.5px',
+      backgroundSize: 'cover',
+      backgroundImage: `url(${imgUrl})`,
+    };
+    output.push(<div key={i} className="photosCarousel" style={imgStyle} />);
   }
-  render() {
 
-    var output = [];
+  return (
+    <div className="photos-container">
+      <Carousel showStatus={false} showThumbs={false} showIndicators={photos.length > 1}>
+        {output}
+      </Carousel>
+    </div>
+  );
+};
 
-    for (var i =0; i < this.props.photos.length; i++) {
-      var imgUrl = this.props.photos[i];
-      const imgStyle ={
-        width: "600px",
-        height: "337.5px",
-        backgroundSize: 'cover',
-        backgroundImage: "url('" + imgUrl + "')",
-      };
-      output.push(<div key={i} className="photosCarousel" style={imgStyle}></div>)
-    }
-
-    return (
-        <div className="photos-container">
-          <Carousel showStatus={false} showThumbs={false} showIndicators={this.props.photos.length > 1}>
-            {output}
-          </Carousel>
-        </div>
-    );
-
-  }
-}
+Photos.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Photos;
-
-    // return (
-    //   <div className= "photosContainer" style={imgStyle}></div>
-    // )

@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import axios from 'axios';
-import Description from './components/description.jsx';
-import Photos from './components/photos.jsx';
+import Description from './components/description';
+import Photos from './components/photos';
 
 class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       details: '',
-      photos: ['www.example.com']
-    }
+      photos: ['https://cdn.makeawebsitehub.com/wp-content/uploads/2016/03/error-with-wordpress.png'],
+    };
   }
 
   componentDidMount() {
@@ -21,33 +19,33 @@ class App extends React.Component {
   }
 
   getDetails() {
-    var that = this;
-    axios.get('/details')
-      .then(function(res) {
-        that.setState({details: res.data[30].details});
-        that.setState({photos: res.data[30].photos});
+    const url = window.location.href;
+    const urlEnd = url.split('/event/')[1];
+    const eventId = urlEnd.split('/')[0];
+
+    axios.get(`/api/event/${eventId}`)
+      .then((res) => {
+        this.setState({ details: res.data.details });
+        this.setState({ photos: res.data.photos });
       })
-      .catch(function(err) {
+      .catch((err) => {
         console.log(err);
-      })
+      });
   }
 
 
   render() {
-
     return (
       <div>
         <div className="event-details-container">
-          <Photos photos={this.state.photos}/>
+          <Photos photos={this.state.photos} />
           <div className="sectionTitle"><h3>Details</h3></div>
-          <Description details={this.state.details}/>
+          <Description details={this.state.details} />
         </div>
       </div>
     );
   }
 }
-
-
 
 
 ReactDOM.render(<App />, document.getElementById('app'));

@@ -1,23 +1,25 @@
 const express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var Model = require('./../database/models/details')
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const path = require('path');
+const Model = require('./../database/models/details');
 
 
-let app = express();
+const app = express();
 
 mongoose.connect('mongodb://localhost/meetup_details');
 
-app.use(express.static(__dirname + '/../client/dist'));
-app.use(bodyParser.json())
+app.use('/event/:eventid/details', express.static(path.join(__dirname, '/../client/dist')));
+app.use(bodyParser.json());
 
-app.get('/details', function(req,res) {
-  Model.Details.find({})
+app.get('/api/event/:eventid', (req, res) => {
+  const eventId = `${req.params.eventid}`;
+  Model.Details.findOne({ id: eventId })
     .select('-_id')
-    .then(function(data){
+    .then((data) => {
       res.send(data);
-    })
-})
+    });
+});
 
-module.exports = app
+module.exports = app;
 
