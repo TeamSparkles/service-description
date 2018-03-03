@@ -1,7 +1,7 @@
-const app = require('./index.js')
+const app = require('./index.js');
 
-let port = 4000;
+const port = 4000;
 
-app.listen((process.env.PORT || port), function() {
+app.listen((process.env.PORT || port), () => {
   console.log(`listening on port ${port}`);
 });
