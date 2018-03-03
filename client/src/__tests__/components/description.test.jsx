@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {shallow, mount} from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
-import Photos from './../../components/Photos';
+import Description from './../../components/Description';
 
 Enzyme.configure({ adapter: new Adapter() });
 
