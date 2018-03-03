@@ -10,6 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/server.js",
+    "seed" : "node worker.js",
     "test": "jest"
   },
   "dependencies": {
