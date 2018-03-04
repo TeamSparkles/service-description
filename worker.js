@@ -37,7 +37,7 @@ output.forEach((entry) => {
     if (err) {
       console.log('ERROR', err);
     } else {
-      console.log('added one entry in the database');
+      console.log(`added one entry in the database with the id of ${entry.id}`);
       if (counter === 0) {
         mongoose.disconnect();
       }
