@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Description from './components/description';
 import Photos from './components/photos';
+import styles from './styles/styles.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="event-details-container">
+        <div className="eventDetailsContainer">
           <Photos photos={this.state.photos} />
           <div className="sectionTitle"><h3>Details</h3></div>
           <Description details={this.state.details} />
