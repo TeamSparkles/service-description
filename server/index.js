@@ -9,6 +9,12 @@ const app = express();
 
 mongoose.connect('mongodb://localhost/meetup_details');
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use('/event/:eventid/details', express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
