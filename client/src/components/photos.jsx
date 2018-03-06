@@ -17,7 +17,7 @@ const Photos = ({ photos }) => {
   }
 
   return (
-    <div className="photos-container">
+    <div className="photosContainer">
       <Carousel showStatus={false} showThumbs={false} showIndicators={photos.length > 1}>
         {output}
       </Carousel>
