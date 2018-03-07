@@ -17,4 +17,3 @@ Description.propTypes = {
 };
 
 export default Description;
-

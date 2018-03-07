@@ -7,7 +7,7 @@ const Model = require('./../database/models/details');
 
 const app = express();
 
-mongoose.connect('mongodb://127.0.01/meetup_details');
+mongoose.connect('mongodb://localhost/meetup_details');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use('/event/:eventid/details', express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 
-app.get('/event/:eventid', (req, res) => {
+app.get('/api/event/:eventid', (req, res) => {
   const eventId = `${req.params.eventid}`;
   Model.Details.findOne({ id: eventId })
     .select('-_id')

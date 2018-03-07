@@ -3,7 +3,7 @@ const data = require('./database/seed_data/data.json');
 const photodata = require('./database/seed_data/mock_photo_data.json');
 const Model = require('./database//models/details.js');
 
-mongoose.connect('mongodb://127.0.0.1:27017/meetup_details');
+mongoose.connect('mongodb://localhost/meetup_details');
 
 const len = photodata.length;
 
