@@ -7,7 +7,7 @@ const Model = require('./../database/models/details');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/meetup_details');
+mongoose.connect('mongodb://127.0.01/meetup_details');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
