@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const data = require('./database/seed_data/data.json');
 const photodata = require('./database/seed_data/mock_photo_data.json');
-const Model = require('./database//models/details.js');
+const Model = require('./database/models/details.js');
 
 mongoose.connect('mongodb://localhost/meetup_details');
 
@@ -36,6 +36,9 @@ output.forEach((entry) => {
   singleEntry.save((err) => {
     if (err) {
       console.log('ERROR', err);
+      if (counter === 0) {
+        mongoose.disconnect();
+      }
     } else {
       console.log(`added one entry in the database with the id of ${entry.id}`);
       if (counter === 0) {

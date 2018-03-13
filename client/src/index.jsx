@@ -24,7 +24,7 @@ class App extends React.Component {
     const urlEnd = url.split('/event/')[1];
     const eventId = urlEnd.split('/')[0];
 
-    axios.get(`http://localhost:4000/api/event/${eventId}`)
+    axios.get(`/api/${eventId}/details`)
       .then((res) => {
         this.setState({ details: res.data.details });
         this.setState({ photos: res.data.photos });

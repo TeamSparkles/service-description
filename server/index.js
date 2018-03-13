@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use('/event/:eventid/details', express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyParser.json());
 
-app.get('/api/event/:eventid', (req, res) => {
+app.get('/api/:eventid/details', (req, res) => {
   const eventId = `${req.params.eventid}`;
   Model.Details.findOne({ id: eventId })
     .select('-_id')
